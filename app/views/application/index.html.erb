@@ -1,0 +1,12 @@
+<div class="container">
+  <div class="main-content">
+    <h1>Welcome!</h1>
+    <% flash.each do |name, msg| %>
+      <% if msg.is_a?(String) %>
+        <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
+          <%=raw content_tag :div, msg, id:"flash_#{name}" %>
+        </div>
+      <% end %>
+    <% end %>
+  </div>  
+</div> 
