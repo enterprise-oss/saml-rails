@@ -1,6 +1,5 @@
 <div class="container">
   <div class="main-content">
-    <h1>Welcome!</h1>
     <% flash.each do |name, msg| %>
       <% if msg.is_a?(String) %>
         <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
@@ -8,6 +7,6 @@
         </div>
       <% end %>
     <% end %>
-    <%= button_to "Sign in with SAML SSO", { :action => "saml_request" }, :method => :get %>
+    Logged in as <%= current_user.email %>
   </div>  
 </div>
