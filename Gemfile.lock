@@ -160,7 +160,11 @@ GEM
     responders (3.0.1)
       actionpack (>= 5.0)
       railties (>= 5.0)
+<<<<<<< HEAD
     ruby-saml (1.11.0)
+=======
+    ruby-saml (1.9.0)
+>>>>>>> 8e6dc86 (Single tenant support with Osso Mock IDP)
       nokogiri (>= 1.5.10)
     rubyzip (2.3.0)
     sass-rails (6.0.0)
@@ -229,7 +233,11 @@ DEPENDENCIES
   puma (~> 5.0)
   rack-mini-profiler (~> 2.0)
   rails (~> 6.1.1)
+<<<<<<< HEAD
   ruby-saml (~> 1.11.0)
+=======
+  ruby-saml (~> 1.9.0)
+>>>>>>> 8e6dc86 (Single tenant support with Osso Mock IDP)
   sass-rails (>= 6)
   selenium-webdriver
   spring
