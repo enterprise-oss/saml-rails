@@ -1,5 +1,7 @@
+<%= javascript_pack_tag 'login', 'data-turbolinks-track': 'reload' %>
+
 <div class="container">
-  <div class="main-content">
+  <div class="main-content login">
     <h1>Welcome!</h1>
     <% flash.each do |name, msg| %>
       <% if msg.is_a?(String) %>
@@ -7,6 +9,12 @@
           <%=raw content_tag :div, msg, id:"flash_#{name}" %>
         </div>
       <% end %>
+    <% end %>
+    
+    <%= form_with url: user_idp_discovery_url, local: false, method: 'post', class: 'login-form', id: 'login-form' do |form| %>
+      <%= form.label :email, "Email" %>
+      <%= form.email_field :email %>
+      <%= form.submit "Sign in with SAML SSO" %>
     <% end %>
   </div>  
 </div> 
