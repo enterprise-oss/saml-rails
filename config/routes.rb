@@ -1,8 +1,21 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+
   root to: "application#index"
   get 'logged_in', to: "application#logged_in"
-  post 'saml_login', to: "application#saml_login"
-  post 'saml_callback', to: "application#saml_callback"
+  
+  devise_scope :user do
+    post '/users/auth/saml_idp',
+      to: 'omniauth_callbacks#idp_login',
+      as: 'user_idp_discovery'
+
+    match '/users/auth/saml/:identity_provider_id/callback',
+      via: [:get, :post],
+      to: 'omniauth_callbacks#saml',
+      as: 'user_omniauth_callback'
+
+    post '/users/auth/saml/:identity_provider_id',
+      to: 'omniauth_callbacks#passthru',
+      as: 'user_omniauth_authorize'
+  end
 end

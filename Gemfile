@@ -23,11 +23,9 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'devise'
-<<<<<<< HEAD
-gem 'ruby-saml', '~> 1.11.0'
-=======
-gem 'ruby-saml', '~> 1.9.0'
->>>>>>> 8e6dc86 (Single tenant support with Osso Mock IDP)
+gem 'omniauth-multi-provider'
+gem 'omniauth-saml', '= 1.10.3'
+gem "omniauth-rails_csrf_protection"
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
