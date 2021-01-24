@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="main-content">
+  <div class="main-content login">
     <h1>Welcome!</h1>
     <% flash.each do |name, msg| %>
       <% if msg.is_a?(String) %>
@@ -7,6 +7,11 @@
           <%=raw content_tag :div, msg, id:"flash_#{name}" %>
         </div>
       <% end %>
+    <% end %>
+    <%= form_with(url: '/users/auth/osso', method: 'post', class: 'login-form') do |form| %>
+      <%= form.label :email, "Email" %>
+      <%= form.email_field :email %>
+      <button type='submit'>Login with SAML SSO</button>
     <% end %>
   </div>  
 </div> 
