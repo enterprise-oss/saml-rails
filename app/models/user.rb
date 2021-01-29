@@ -1,3 +1,3 @@
 class User < ApplicationRecord
-  devise :timeoutable
+  devise :timeoutable, :omniauthable
 end
